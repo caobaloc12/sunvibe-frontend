@@ -1,0 +1,22 @@
+
+.title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -1px;
+  color: #f80;
+}
+.secondaryText {
+  color: #ffffff;
+  background: rgb(40, 145, 40);
+  margin-top: 16px;
+  padding: 4px 16px;
+  max-width: 360px;
+}
+.banner {
+  height: 328px;
+  background-image: url(../assets/sunvibe-bg.JPG);
+  background-size: cover;
+  background-position: center;
+  min-height: 70vh;
+  padding: 24px;
+}
