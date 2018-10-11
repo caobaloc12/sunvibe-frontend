@@ -1,7 +1,7 @@
 
 // import * as usersService from '../services/users';
 
-const transactions = [
+const mock = [
   {
     avatarUrl: 'https://robohash.org/T2E.png?set=set1&size=150x150',
     time: '09/29/2018 10:26',
@@ -28,8 +28,8 @@ export default {
     page: null,
   },
   reducers: {
-    save(state, action) {
-      return { ...state, ...action };
+    save(state, { payload: { data: transactions, total, page } }) {
+      return { ...state, transactions, total, page };
     },
   },
   effects: {
@@ -37,21 +37,21 @@ export default {
       yield put({
         type: 'save',
         payload: {
-          transactions,
-          total: transactions.length,
+          data: mock,
+          total: mock.length,
           page,
         },
       });
     },
     *reload(action, { put, select }) {
-      const page = yield select(state => state.investor.page);
+      const page = yield select(state => state.investors.page);
       yield put({ type: 'fetch', payload: { page } });
     },
   },
   subscriptions: {
     setup({ dispatch, history }) {
       return history.listen(({ pathname, query }) => {
-        if (pathname === '/investor') {
+        if (pathname === '/investors') {
           dispatch({ type: 'fetch', payload: query });
         }
       });
