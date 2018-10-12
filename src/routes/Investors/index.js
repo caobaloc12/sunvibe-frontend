@@ -3,6 +3,7 @@ import { connect } from 'dva';
 import { Table, Badge, Button } from 'antd';
 import MainLayout from '../../components/MainLayout/MainLayout';
 import { numberWithCommas } from '../../utils/numbers';
+import BuyTokenDrawer from './BuyTokenDrawer';
 
 class Investors extends PureComponent {
   componentDidMount() {
@@ -41,9 +42,7 @@ class Investors extends PureComponent {
       <MainLayout location={location}>
         <div style={{ padding: 24 }}>
           <h1>Transactions</h1>
-          <Button type="primary" size="large" style={{ margin: '16px 0' }} icon="shopping-cart">
-            Buy token
-          </Button>
+          <BuyTokenDrawer />
           <Table
             loading={loading}
             rowKey={record => record.description}
